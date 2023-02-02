@@ -1,0 +1,7 @@
+Map map1 = [ m1: 'BL', m2: 'FE',  m3: ‘DC’]
+Map map2 = [ m1: [ 'n1', 'n4', 'n7' ], m2: ['n1', 'n8',’n11], m3: [’n5’,’n14’]]
+map1.keySet().each { 
+key ->    List v2 = map2[key]
+    if ( v2 ) {
+       println (([map1[key]] + v2).join("."))
+    }
