@@ -1,0 +1,46 @@
+public static void generateCandidacyCartesian(ArrayList<String> list, int itemSetCount){
+uniqueItemsForEachSupp.clear();
+for(int i=0;i<list.size();i++){
+String s = list.get(i).trim();
+String s1 = s.substring(0, s.lastIndexOf(" "));
+for(int j=i+1;j<list.size();j++){
+String w = list.get(j).trim();
+String w1 = w.substring(0, w.lastIndexOf(" "));
+if(s1.equals(w1)){
+uniqueItemsForEachSupp.add(s + " " + w.substring(w.lastIndexOf(" ")+1));
+} } } }
+publicstaticvoid generateCandidancyList(ArrayList<String> list,int itemSetCount) {
+if(itemSetCount==1){
+currCandidacyList.clear();
+for(int k=0; k<list.size() ; k++) {
+String s = list.get(k);
+for(int i=0; i<grid.size() ; i++) {
+if(grid.get(i).contains(s)) {
+if(currCandidacyList.containsKey(s) ){
+int val = currCandidacyList.get(s);
+currCandidacyList.put(s,++val);
+}
+else
+currCandidacyList.put(s,1);
+} } } } 
+else {
+currCandidacyList.clear();
+for(int k=0;k<list.size();k++){
+String s = list.get(k);
+String[] sSplit = s.split(" ");
+int len = sSplit.length;
+for(int j=0;j<grid.size();j++){
+boolean flag = true;
+for(int i=0;i<len;i++){
+if(!grid.get(j).contains(sSplit[i])){
+flag=false;
+break;
+} }
+if(flag==true){
+if(currCandidacyList.containsKey(s) ){
+int val = currCandidacyList.get(s);
+currCandidacyList.put(s,++val);
+}
+else{
+currCandidacyList.put(s,1);
+} } } } } }
