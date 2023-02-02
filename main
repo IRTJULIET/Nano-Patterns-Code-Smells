@@ -1,0 +1,58 @@
+public static void main(String[] args) {
+double minSup = 20;
+System.out.println("Minimum Threshold SET TO:"+minSup);
+String fileName = "np.txt";
+readAndParseInput(fileName);
+for(int i=0;i<1;i++){
+double count=0;
+int indexOfFrequentItemSet = 1;
+System.out.println("Support is set to be " + minSup + "%");
+int itemSetCount = 1;
+if(itemSetCount == 1){
+generateCandidancyList(finalUniqueItems,itemSetCount);
+generateFreqList(minSup,itemSetCount);
+System.out.println("GRID VALUES:"+grid);
+System.out.println("freqList Values:"+ indexOfFrequentItemSet+":"+freqList);
+freqListAfterFirstIteration = new ArrayList<>(freqList);
+System.out.println("number of length-"+ itemSetCount+" frequent itemset-1: "+ freqList.size());
+count += freqList.size();
+itemSetCount++;
+if(freqList.size() > 0){
+for(int index=0;index<freqList.size();index++){
+finalResult.add(freqList.get(index));
+} }
+indexOfFrequentItemSet+=1;
+} if(itemSetCount==2){
+String[] data = new String[itemSetCount];
+uniqueItemsForEachSupp.clear();
+generateCandidacyListOfGivenLength(freqListAfterFirstIteration, freqListAfterFirstIteration.size(), itemSetCount, 0, data, 0);
+generateCandidancyList(uniqueItemsForEachSupp, itemSetCount);
+generateFreqList(minSup,itemSetCount);
+System.out.println(" ");
+System.out.println("freqList Values:"+ indexOfFrequentItemSet+":"+freqList);
+indexOfFrequentItemSet+=1;
+System.out.println("number of length-"+ itemSetCount+" frequent itemset-2: "+ freqList.size());
+count += freqList.size();
+itemSetCount++;
+if(freqList.size() > 0){
+for(int index=0;index<freqList.size();index++){
+finalResult.add(freqList.get(index));
+} } } 
+if(itemSetCount>=3){
+while(freqList.size()!=0){
+generateCandidacyCartesian(freqList, itemSetCount);
+generateCandidancyList(uniqueItemsForEachSupp, itemSetCount);
+generateFreqList(minSup,itemSetCount);
+System.out.println(" ");
+System.out.println("freqList Values:"+ indexOfFrequentItemSet+":"+freqList);
+indexOfFrequentItemSet+=1;
+System.out.println("number of length-"+ itemSetCount+" frequent itemset-3: "+ freqList.size());
+count += freqList.size();
+itemSetCount++;
+if(freqList.size() > 0){
+for(int index=0;index<freqList.size();index++){
+finalResult.add(freqList.get(index));
+} } } }
+System.out.println("Total: "+ count);
+System.out.println();
+} }
