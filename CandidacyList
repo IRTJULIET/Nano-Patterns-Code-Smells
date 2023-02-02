@@ -1,0 +1,16 @@
+publicstaticvoid generateCandidacyListOfGivenLength(ArrayList<String> uniqueItems, int uniqueItemsSize, int itemSize, int index, String[] data, int i ){
+if (index == itemSize)
+{
+String result = "";
+for (int j=0; j<itemSize; j++)
+result = result + data[j]+" ";
+uniqueItemsForEachSupp.add(result);
+return;
+}
+if (i >= uniqueItemsSize)
+return;
+data[index] = uniqueItems.get(i);
+generateCandidacyListOfGivenLength(uniqueItems, uniqueItemsSize, itemSize, index+1, data, i+1);
+generateCandidacyListOfGivenLength(uniqueItems, uniqueItemsSize, itemSize, index, data, i+1);
+}
+}
