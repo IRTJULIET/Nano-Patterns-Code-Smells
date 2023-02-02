@@ -1,0 +1,31 @@
+publicstaticvoid readAndParseInput(String fileName){
+HashSet<String> uniqueItemSet = new HashSet<>();
+String line = null;
+try {
+FileReader fileReader = new FileReader(fileName);
+@SuppressWarnings("resource")
+BufferedReader bufferedReader = new BufferedReader(fileReader);
+while((line=bufferedReader.readLine())!=null){
+String lineSplit[] = line.split("\\t");
+HashSet<String> lineHashSet = new HashSet<String>();
+int len = lineSplit.length;
+for(int i=1;i<=len-2;i++){
+lineSplit[i] = lineSplit[i]; 
+lineHashSet.add(lineSplit[i]);
+uniqueItemSet.add(lineSplit[i]);
+}
+lineHashSet.add(lineSplit[len-1]);
+uniqueItemSet.add(lineSplit[len-1]);
+grid.add(lineHashSet);
+}
+} catch (FileNotFoundException e) {
+System.out.println("Unable to open file" + fileName);
+} catch (IOException e) {
+System.out.println("Error reading from file" + fileName);
+}
+sizeOfGrid = grid.size();
+finalUniqueItems = new ArrayList<String>(uniqueItemSet);
+for(String element:finalUniqueItems){
+System.out.println("[INFO] FINAL UNIQUE ITEMS:"+element);
+} }
+
