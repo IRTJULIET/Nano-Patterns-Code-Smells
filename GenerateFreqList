@@ -1,0 +1,8 @@
+publicstaticvoid generateFreqList(double minSup, int itemCount) {
+freqList.clear();
+minSup /=100;
+Set<String> set = currCandidacyList.keySet();
+for(String s : set){
+if( (double) currCandidacyList.get(s)/sizeOfGrid>=minSup){
+freqList.add(s);
+} } }
